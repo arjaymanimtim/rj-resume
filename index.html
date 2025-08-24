@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chosen Palette: Brilliant Blues -->
+    <!-- Application Structure Plan: A single-page narrative SPA. Structure: Hero, Key Impact Metrics, Core Competencies (Radar Chart), Automation Toolkit (Bar Chart), Interactive Project Showcase (Cards), and Certifications. This structure tells a compelling story from high-level impact down to specific proof, enhancing usability and engagement over a static document. -->
+    <!-- Visualization & Content Choices: Key Metrics -> Goal: Inform -> Big Number/HTML -> Justification: High impact. Core Skills -> Goal: Compare -> Radar Chart/Chart.js -> Justification: Shows multi-dimensional strengths. Toolkit -> Goal: Compare -> Bar Chart/Chart.js -> Justification: Clear proficiency comparison. Projects -> Goal: Organize -> Cards/HTML+CSS -> Justification: Digestible & clean. Certs -> Goal: Organize -> List/HTML. CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <title>Arjay Manimtim - Interactive Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .stat-card, .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover, .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+        
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#003B73]">Arjay T. Manimtim</h1>
+            <p class="text-xl md:text-2xl text-[#0074D9] mt-2">RPA Business Analyst | Driving Transformation Through Automation</p>
+        </header>
+
+        <main>
+            <section id="impact" class="mb-20">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#003B73]">Key Career Impact in 1 Year</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="stat-card bg-white rounded-lg shadow-md p-6 border-l-4 border-[#0074D9]">
+                        <p class="text-5xl font-bold text-[#003B73]">~75%</p>
+                        <p class="text-lg text-gray-600 mt-2">Average Reduction in Process Time</p>
+                    </div>
+                    <div class="stat-card bg-white rounded-lg shadow-md p-6 border-l-4 border-[#0074D9]">
+                        <p class="text-5xl font-bold text-[#003B73]">6</p>
+                        <p class="text-lg text-gray-600 mt-2">High-Impact Automation Projects Delivered</p>
+                    </div>
+                    <div class="stat-card bg-white rounded-lg shadow-md p-6 border-l-4 border-[#0074D9]">
+                        <p class="text-5xl font-bold text-[#003B73]">2</p>
+                        <p class="text-lg text-gray-600 mt-2">Projects with Direct Revenue Uplift</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="competencies" class="mb-20">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#003B73]">Core Competencies</h2>
+                 <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="chart-container">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-600 mt-4 px-4">This chart illustrates my proficiency across key business analysis domains. My core strengths are in process mapping and requirements gathering, which form the foundation of every successful automation project, complemented by strong data analysis and stakeholder management skills.</p>
+                </div>
+            </section>
+            
+            <section id="toolkit" class="mb-20">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#003B73]">Automation & Analytics Toolkit</h2>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="chart-container h-96">
+                        <canvas id="toolsBarChart"></canvas>
+                    </div>
+                     <p class="text-center text-gray-600 mt-4 px-4">This chart displays my proficiency with the primary technologies I leverage to design and deliver automation solutions. My expertise is centered around the M365 platform and specialized BA tools, supported by strong skills in project management and data platforms.</p>
+                </div>
+            </section>
+
+            <section id="projects" class="mb-20">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#003B73]">Project Showcase</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="project-card bg-white rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003B73]">Trading Retail API Automation</h3>
+                        <p class="text-gray-600 mt-2 flex-grow">Reduced a 4-month manual process to just 1 month by automating the activation of nearly a million online markets.</p>
+                        <p class="text-sm text-[#0074D9] font-semibold mt-4">Tools: Skore, Jira, Confluence</p>
+                    </div>
+                    <div class="project-card bg-white rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003B73]">New Joiner Onboarding Mail Automation</h3>
+                        <p class="text-gray-600 mt-2 flex-grow">Streamlined HR processes by automating the delivery of customized onboarding checklists to new hires.</p>
+                        <p class="text-sm text-[#0074D9] font-semibold mt-4">Tools: UiPath, Excel, Outlook</p>
+                    </div>
+                    <div class="project-card bg-white rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003B73]">Chargeback Dispute Tagging</h3>
+                        <p class="text-gray-600 mt-2 flex-grow">Automated the tagging of customer accounts with disputed chargebacks, delivering significant FTE savings.</p>
+                        <p class="text-sm text-[#0074D9] font-semibold mt-4">Tools: UiPath, SharePoint, Outlook</p>
+                    </div>
+                    <div class="project-card bg-white rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003B73]">3rd Party Data to Snowflake Pipeline</h3>
+                        <p class="text-gray-600 mt-2 flex-grow">Automated a critical data pipeline for timely analysis by creating a scheduled data extraction and upload process.</p>
+                        <p class="text-sm text-[#0074D9] font-semibold mt-4">Tools: UiPath, Snowflake</p>
+                    </div>
+                    <div class="project-card bg-white rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003B73]">Customer Bonus Enablement</h3>
+                        <p class="text-gray-600 mt-2 flex-grow">Automated bonus and offer eligibility for customers, leading to time savings and a direct revenue uplift.</p>
+                        <p class="text-sm text-[#0074D9] font-semibold mt-4">Tools: UiPath, Back-Office Tools</p>
+                    </div>
+                    <div class="project-card bg-white rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003B73]">Suspended Customer Communication</h3>
+                        <p class="text-gray-600 mt-2 flex-grow">Accelerated customer ID verification and drove revenue uplift by automating email requests to suspended customers.</p>
+                        <p class="text-sm text-[#0074D9] font-semibold mt-4">Tools: Skore, UiPath, Outlook</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="certs" class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#003B73]">Certifications & Professional Awards</h2>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-[#0074D9] font-bold mr-2">▶</span>
+                            <div><strong>Google Data Analytics Specialization</strong> (Oct 2023) - <a href="https://www.coursera.org/account/accomplishments/specialization/VL9NXJH3HXL9" target="_blank" class="text-blue-600 hover:underline">View Credential</a></div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#0074D9] font-bold mr-2">▶</span>
+                            <div><strong>Data Analytics in Excel</strong> (Sep 2024) - <a href="https://www.credly.com/badges/86dea1af-b007-4cc1-8a2d-a3b29f3d95f4/linked_in_profile" target="_blank" class="text-blue-600 hover:underline">View Credential</a></div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#0074D9] font-bold mr-2">▶</span>
+                            <div><strong>Excellence in Role Award</strong> (Jun 2025) - Recognized for delivering strategic solutions and long-term tools like PowerBI.</div>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="text-[#0074D9] font-bold mr-2">▶</span>
+                            <div><strong>Outstanding Performance as Risk Analyst</strong> (Sep 2018) - Acknowledged for exceptional performance and analytical skills.</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 py-6 border-t border-gray-300">
+            <p class="text-gray-600">&copy; 2025 Arjay T. Manimtim | Interactive Resume</p>
+        </footer>
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth) => {
+            if (typeof label !== 'string') return [label];
+            const words = label.split(' ');
+            if (words.length === 1) return [label];
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine.length > 0) lines.push(currentLine);
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const skillsRadarCtx = document.getElementById('skillsRadarChart').getContext('2d');
+        new Chart(skillsRadarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Process Mapping', 'Requirements Gathering', 'Stakeholder Management', 'FTE Calculation', 'Data Analysis'],
+                datasets: [{
+                    label: 'Skill Level (out of 10)',
+                    data: [9, 9, 8.5, 6.5, 8],
+                    backgroundColor: 'rgba(0, 116, 217, 0.2)',
+                    borderColor: '#0074D9',
+                    pointBackgroundColor: '#0074D9',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#0074D9',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#B2B2B2' },
+                        grid: { color: '#B2B2B2' },
+                        pointLabels: {
+                            font: { size: 14 },
+                            color: '#003B73'
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: '#666',
+                            stepSize: 2
+                        },
+                        min: 0,
+                        max: 10
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                }
+            }
+        });
+
+        const toolsBarCtx = document.getElementById('toolsBarChart').getContext('2d');
+        new Chart(toolsBarCtx, {
+            type: 'bar',
+            data: {
+                labels: ['M365 (Excel, Outlook, SharePoint)', 'Jira & Confluence', 'UiPath', 'Skore / Spark', 'Snowflake', 'Power BI'].map(label => wrapLabel(label, 16)),
+                datasets: [{
+                    label: 'Proficiency (out of 10)',
+                    data: [9, 9, 8, 8, 7, 7],
+                    backgroundColor: ['#003B73', '#0074D9', '#7FDBFF', '#39CCCC', '#3D9970', '#FF851B'],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { display: false },
+                        max: 10
+                    },
+                    y: { grid: { display: false } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
